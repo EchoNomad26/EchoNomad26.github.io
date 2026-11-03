@@ -1,8 +1,9 @@
 import os
 import subprocess
+import shutil
 from datetime import datetime
 import tkinter as tk
-from tkinter import messagebox, simpledialog
+from tkinter import messagebox, simpledialog, filedialog
 
 # Configuration
 BLOG_DIR = os.path.expanduser(r"~\Documents\EchoNomad26.github.io")
@@ -12,7 +13,7 @@ class BlogDashboard:
     def __init__(self, root):
         self.root = root
         self.root.title("EchoNomad Dashboard")
-        self.root.geometry("650x450")
+        self.root.geometry("680x450")
         self.root.configure(bg="#121212")
         
         # UI Styling
@@ -39,11 +40,12 @@ class BlogDashboard:
         # Action Buttons
         btn_opts = {"bg": self.btn_bg, "fg": self.fg_color, "relief": tk.FLAT, "font": self.font_main, "cursor": "hand2", "padx": 10, "pady": 5}
         
-        tk.Button(btn_frame, text="✍️ New", command=self.new_post, **btn_opts).pack(side=tk.LEFT, padx=(0, 10))
-        tk.Button(btn_frame, text="📝 Edit", command=self.edit_post, **btn_opts).pack(side=tk.LEFT, padx=10)
-        tk.Button(btn_frame, text="🗑️ Delete", command=self.delete_post, **btn_opts).pack(side=tk.LEFT, padx=10)
+        tk.Button(btn_frame, text="✍️ New", command=self.new_post, **btn_opts).pack(side=tk.LEFT, padx=(0, 5))
+        tk.Button(btn_frame, text="📤 Upload", command=self.upload_post, **btn_opts).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame, text="📝 Edit", command=self.edit_post, **btn_opts).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame, text="🗑️ Delete", command=self.delete_post, **btn_opts).pack(side=tk.LEFT, padx=5)
         
-        publish_btn = tk.Button(btn_frame, text="🚀 Publish to GitHub", command=self.publish, 
+        publish_btn = tk.Button(btn_frame, text="🚀 Sync to GitHub", command=self.publish, 
                                 bg=self.accent_color, fg="white", relief=tk.FLAT, font=("Consolas", 11, "bold"), cursor="hand2", padx=10, pady=5)
         publish_btn.pack(side=tk.RIGHT)
         
@@ -81,6 +83,29 @@ class BlogDashboard:
             self.load_posts()
             subprocess.Popen(["notepad.exe", filepath])
 
+    def upload_post(self):
+        source_path = filedialog.askopenfilename(
+            title="Select Markdown File to Upload",
+            filetypes=[("Markdown Files", "*.md"), ("Text Files", "*.txt"), ("All Files", "*.*")],
+            parent=self.root
+        )
+        if not source_path: return
+        
+        filename = os.path.basename(source_path)
+        destination_path = os.path.join(POSTS_DIR, filename)
+        
+        # Prevent accidental overwriting
+        if os.path.exists(destination_path):
+            if not messagebox.askyesno("File Exists", f"'{filename}' already exists in your archive. Overwrite it?"):
+                return
+                
+        try:
+            shutil.copy2(source_path, destination_path)
+            self.load_posts()
+            messagebox.showinfo("Success", f"Successfully imported '{filename}'!")
+        except Exception as e:
+            messagebox.showerror("Import Error", f"Could not copy the file:\n{e}")
+
     def edit_post(self):
         selection = self.listbox.curselection()
         if not selection: return
@@ -102,9 +127,9 @@ class BlogDashboard:
         self.root.update()
         
         try:
-            subprocess.run(["git", "add", "."], shell=True, check=True)
-            subprocess.run(["git", "commit", "-m", f"Dashboard UI sync: {datetime.now().strftime('%Y-%m-%d %H:%M')}"], shell=True)
-            subprocess.run(["git", "push", "origin", "main"], shell=True, check=True)
+            subprocess.run(["git", "add", "."], shell=True, check=True, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.run(["git", "commit", "-m", f"Dashboard UI sync: {datetime.now().strftime('%Y-%m-%d %H:%M')}"], shell=True, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.run(["git", "push", "origin", "main"], shell=True, check=True, creationflags=subprocess.CREATE_NO_WINDOW)
             messagebox.showinfo("Success", "All changes published to GitHub successfully!")
         except subprocess.CalledProcessError:
             messagebox.showerror("Error", "Failed to sync with GitHub. Check your connection.")
