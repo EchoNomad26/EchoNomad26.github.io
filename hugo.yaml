@@ -1,10 +1,10 @@
 baseURL: "https://echonomad26.github.io/"
 title: "EchoNomad — Daily Thoughts"
 theme: "hugo-bearblog"
-languageCode: "el-gr"
+languageCode: "en-us"
 
 params:
   author: "EchoNomad"
-  description: "Καθημερινές σκέψεις και σημειώσεις."
+  description: "A minimalist daily thought journal."
   title: "EchoNomad"
   theme: "auto"
