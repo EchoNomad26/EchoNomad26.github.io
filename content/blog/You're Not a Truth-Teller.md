@@ -1,5 +1,5 @@
 ---
-title: "You're Not a Truth-Teller. You're Just Transparent."
+title: "You're Not a Truth-Teller. You're Just an Unfiltered mouth."
 date: 2026-11-04
 tags: ["Psychology", "ADHD", "Mindset", "Power-Dynamics"]
 summary: "To the people using 'Radical Honesty' as a blunt instrument: you think you look dangerous and authentic. To anyone paying attention, you just look undisciplined."
