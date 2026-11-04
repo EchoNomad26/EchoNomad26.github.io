@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>ADHD on EchoNomad — Daily Thoughts</title>
+		<link>http://localhost:1313/tags/adhd/</link>
+		<description>Recent content in ADHD on EchoNomad — Daily Thoughts</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 04 Nov 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/tags/adhd/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>The Illusion of &#39;Radical Honesty&#39; (Fast-Scan Edition)</title>
+				<link>http://localhost:1313/blog/the-illusion-of-radical-honesty-fast-scan-edition/</link>
+				<pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/blog/the-illusion-of-radical-honesty-fast-scan-edition/</guid>
+				<description>Why having &amp;rsquo;no filter&amp;rsquo; isn&amp;rsquo;t brave, how to tell malicious honesty from ADHD blurting, and exact scripts to shut down conversational bullies.</description>
+			</item>
+			<item>
+				<title>You&#39;re Not a Truth-Teller. You&#39;re Just an Unfiltered mouth.</title>
+				<link>http://localhost:1313/blog/youre-not-a-truth-teller/</link>
+				<pubDate>Wed, 04 Nov 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/blog/youre-not-a-truth-teller/</guid>
+				<description>To the people using &amp;lsquo;Radical Honesty&amp;rsquo; as a blunt instrument: you think you look dangerous and authentic. To anyone paying attention, you just look undisciplined.</description>
+			</item>
+	</channel>
+</rss>
