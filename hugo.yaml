@@ -8,3 +8,10 @@ params:
   description: "A minimalist daily thought journal."
   title: "EchoNomad"
   theme: "auto"
+  description: "Hugo + Bear = :heart:"
+  favicon: "images/favicon.png"
+  images:
+    - "images/share.png"
+  title: "Hugo ʕ•ᴥ•ʔ Bear"
+  custom_css:
+    - "css/custom.css"
