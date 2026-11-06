@@ -1,36 +1,55 @@
-:root {
-    --bg: #111111;
-    --text: #cccccc;
-    --links: #ffffff;
-    --accent: #555555;
-}
+/* EchoNomad 10/10 Editorial Custom CSS Override */
 
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.7;
+  max-width: 68ch; /* Optimal reading measure */
+  margin: 40px auto;
+  padding: 0 1.25rem;
+  font-size: 1.125rem; /* 18px base prevents eye strain */
+  line-height: 1.7;
+  letter-spacing: -0.011em;
+  color: #1a1a1a;
 }
 
-a {
-    color: var(--links);
-    text-decoration-color: var(--accent);
-    text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease;
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121316; /* Soft dark */
+    color: #dedede;
+  }
+  a {
+    color: #93b5ff;
+  }
+  hr {
+    border-color: #262930;
+  }
 }
 
-a:hover {
-    text-decoration-color: var(--links);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
+/* Editorial Blockquotes */
 blockquote {
-    border-left: 2px solid var(--accent);
-    color: #999999;
-    font-style: italic;
+  border-left: 3px solid #4a5568;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  font-style: italic;
+  color: #4a5568;
+}
+
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    border-left-color: #718096;
+    color: #a0aec0;
+  }
+}
+
+/* Post Meta (Timestamp & Reading Time) */
+.post-meta {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #666;
 }

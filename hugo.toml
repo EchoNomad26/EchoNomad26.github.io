@@ -1,0 +1,21 @@
+baseURL = "https://echonomad26.github.io/blog/"
+title = "EchoNomad — Daily Thoughts"
+theme = "hugo-bearblog"
+
+[params]
+  description = "A minimalist blog on behavioral psychology, boundaries, and personal sovereignty."
+  author = "EchoNomad"
+
+[menu]
+  [[menu.main]]
+    name = "Essays"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 3
