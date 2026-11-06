@@ -1,4 +1,4 @@
-baseURL = "https://echonomad26.github.io/blog/"
+baseURL = "https://echonomad26.github.io/"
 title = "EchoNomad — Daily Thoughts"
 theme = "hugo-bearblog"
 
@@ -8,14 +8,10 @@ theme = "hugo-bearblog"
 
 [menu]
   [[menu.main]]
-    name = "Essays"
-    url = "/"
+    name = "Blog"
+    url = "/blog/"
     weight = 1
   [[menu.main]]
     name = "About"
     url = "/about/"
     weight = 2
-  [[menu.main]]
-    name = "RSS"
-    url = "/index.xml"
-    weight = 3
